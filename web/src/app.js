@@ -30,7 +30,6 @@ app.locals.pretty = true;
 // Handlebars Configuration. Configura con los detalles necesarios el handlebars.
 // Establece el motor de las vistas como hbs (handlebars)
 app.set('view engine', 'hbs');
-// PREGUNTAR A FRANCH app.set('view options', { layout: 'partials' });
 
 // Es necesario el .engine despues del exphbs, ya que configuramos el motor con un callback, añadiendo configuraciones propias al
 // propio motor.

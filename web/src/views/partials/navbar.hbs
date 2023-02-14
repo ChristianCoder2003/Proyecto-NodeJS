@@ -1,22 +1,24 @@
 {{!-- Podemos utilizar helpers usando el símbolo # (#if, #each...) --}}
-<aside class="bodySection sideSection">
+<aside class="bodySection sideSection navSection">
     <div class="logo"></div>
-    <nav class="navbar">
+    <ul class="navbar">
         {{!-- Cambiamos el "enfoque" del objeto de contexto (data) con el helper with, para acceder a sus propiedades pages y currentPage--}}
         {{#with data}}
         {{!-- Por cada objeto (en este caso, pagina) que hay en el array pages: --}}
         {{#each pages}}
-        <div class="navItem">
-            <div class="icon">
-                {{!-- Usando el helper definido por mí, miramos que el link de la posición del array actual sea igual que la
-                    url de la página actual (currentPage). En caso afirmativo, muestra el logo rellenado; En caso contrario, 
-                    solo el contorno --}}
-                <ion-icon name="{{#isEqual link ../currentPage}}{{logo_selected}}{{else}}{{logo}}{{/isEqual}}"></ion-icon>
-            </div>
-            {{!-- Mostramos el atributo link y name de la pagina de la iteración actual --}}
-            <a class="link" href="{{link}}">{{name}}</a>
-        </div>
+        <li class="navItem">
+            <a class="link" href="{{link}}">
+                <div class="icon">
+                    {{!-- Usando el helper definido por mí, miramos que el link de la posición del array actual sea igual que la
+                        url de la página actual (currentPage). En caso afirmativo, muestra el logo rellenado; En caso contrario, 
+                        solo el contorno --}}
+                    <ion-icon name="{{#isEqual link ../currentPage}}{{logo_selected}}{{else}}{{logo}}{{/isEqual}}"></ion-icon>
+                </div>
+                    {{!-- Mostramos el name de la pagina de la iteración actual --}}
+                <p class="linkName">{{name}}</p>
+            </a>
+        </li>
         {{/each}}
         {{/with}}
-    </nav>
+    </ul>
 </aside>
